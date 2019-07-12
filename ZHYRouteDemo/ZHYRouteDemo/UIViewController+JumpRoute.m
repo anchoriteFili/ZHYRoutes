@@ -1,32 +1,11 @@
-路由基础构建
+//
+//  UIViewController+JumpRoute.m
+//  ZHYRouteDemo
+//
+//  Created by 赵宏亚 on 2019/7/12.
+//  Copyright © 2019 赵宏亚. All rights reserved.
+//
 
-1. 创建`UIViewController`扩展`UIViewController+JumpRute`
-
-**UIViewController+JumpRoute.h**
-
-```objc
-#import <UIKit/UIKit.h>
-
-NS_ASSUME_NONNULL_BEGIN
-
-@interface UIViewController (JumpRoute)
-
-/**
- 通过连接
-
- @param Info 跳转所带基本信息 - model等
- @param URLScheme 跳转标记
- */
-- (void)HandleURLWithInfo:(id)Info URLScheme:(NSString *)URLScheme;
-
-@end
-
-NS_ASSUME_NONNULL_END
-```
-
-**UIViewController+JumpRoute.m**
-
-```objc
 #import "UIViewController+JumpRoute.h"
 #import "BaseWebViewController.h"
 #import "BaseViewController.h"
@@ -91,24 +70,3 @@ ZHY_WH://OpenBaseWebViewController/URL=   打开视图控制器
 
 
 @end
-```
-
-2. 调取路由跳转页面
-
-```objc
-- (IBAction)buttonClick:(UIButton *)sender {
-    
-    if (sender.tag == 10001) { // 跳转基础页面
-        BaseModel *model = [[BaseModel alloc] init];
-        model.title = @"基础页面";
-        [self HandleURLWithInfo:model URLScheme:@"ZHY_NH://OpenBaseViewController"];
-    } else if (sender.tag == 10002) { // 跳转web页面
-        BaseModel *model = [[BaseModel alloc] init];
-        model.title = @"网络页面";
-        [self HandleURLWithInfo:model URLScheme:@"ZHY_WH://OpenBaseWebViewController/URL=https://github.com/anchoriteFili/ZHYRoutes"];
-    } else { // 直接连接跳转
-        // 跳转web页面
-        [self HandleURLWithInfo:@"百度" URLScheme:@"https://www.baidu.com"];
-    }
-}
-```

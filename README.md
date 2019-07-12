@@ -112,3 +112,6 @@ ZHY_WH://OpenBaseWebViewController/URL=   打开视图控制器
     }
 }
 ```
+<br>
+
+![](https://github.com/anchoriteFili/ZHYRoutes/blob/master/ZHYRoutes.gif)
